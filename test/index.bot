@@ -1,4 +1,4 @@
-{ name: "name" }
+{name that name}
 Send_channel_message then:
     $name
 :end

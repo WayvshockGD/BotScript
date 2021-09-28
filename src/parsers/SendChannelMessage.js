@@ -1,17 +1,30 @@
 
 /**
  * @param {string} content
- * @param {Array<object>} json
+ * @param {Array<command_json>} json
  */
 module.exports = function(content, json) {
     let regex = /Send_channel_message then:/g;
+    let json_regex = /[A-z]/g;
+
     let slice_content = "Send_channel_message then:";
-    let sliced = content.slice(content.indexOf(slice_content), content.lastIndexOf(slice_content) - 12);
-    console.log(sliced)
-    let keys = content.slice(content.indexOf(slice_content) + 27, content.lastIndexOf(slice_content) - 5);
-    sliced = sliced.slice(0, content.indexOf("then:") + 5);
+
+    let json_content = content.slice(content.indexOf("{name") + 6);
+    let json_data = json_content.slice(0, json_content.lastIndexOf("name}")).trim();
+
+    if (!json_regex.test(json_data)) {
+        throw new SyntaxError(`"${json_data}" does not match the regex. ${json_regex}`);
+    }
     
-    if (!regex.test(sliced)) {
+    let sliced = content.slice(content.indexOf(slice_content), content.lastIndexOf("then:"));
+
+    if (!regex.test(`${sliced}then:`)) {
         throw new SyntaxError(`"Send_channel_message then" is not correct. recieved: ${sliced}`);
     };
+
+    let found_data = json.find(d => d.command === json_data);
+
+    if (!found_data) {
+        return console.log(`Could not find json data "${json_data}"`);
+    }
 }
