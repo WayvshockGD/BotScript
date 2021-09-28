@@ -1,1 +1,1 @@
-[{"command":"name name}\nSend_channel_message then:\n    $name\n:end\n{name avatar"}]
+[{"command":"name"},{"command":"channel_message then"},{"command":"nam"},{"command":""},{"command":"avatar"},{"command":"avata"}]
