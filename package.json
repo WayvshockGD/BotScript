@@ -1,0 +1,17 @@
+{
+  "name": "botscript",
+  "version": "1.0.0",
+  "description": "Make bot commander commands  easily!",
+  "main": "./bot.js",
+  "bin": {
+    "bot": "./bot.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wayvshock",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^16.10.1"
+  }
+}
