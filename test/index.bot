@@ -1,4 +1,9 @@
-{name that name}
+{name name name}
 Send_channel_message then:
     $name
+:end
+
+{name avatar name}
+Send_channel_message then:
+    $avatar
 :end

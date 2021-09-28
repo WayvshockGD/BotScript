@@ -4,3 +4,8 @@
  * @property {string} channelMessage
  * @property {string} command
  */
+
+/**
+ * @typedef {object} meta
+ * @property {string} command
+ */
